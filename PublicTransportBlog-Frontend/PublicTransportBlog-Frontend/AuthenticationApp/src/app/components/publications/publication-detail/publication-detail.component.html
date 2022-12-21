@@ -1,0 +1,19 @@
+<div class="container my-5">
+    <h1 class="mb-3">Допълнителна информация за публикацията</h1>
+        <div class="mb-3">
+          <h5 class="title">{{ publicationData.title }}</h5>
+        </div>
+        <div class="mb-3">
+            <h5 class="date"> Публикувана на: {{ publicationData.date | date:'dd.MM.yyyy h:mm a'}} </h5>
+        </div>
+        <div class="mb-3">
+            <h5 class="description">{{ publicationData.description }}</h5>
+        </div>
+        <div class="last" *ngIf="isLogged()" >
+            <a [routerLink]="['/publications', 'edit', publicationData.id]" type="button" class="btn btn-warning">Редактирай</a>
+            <button type="button" class="btn btn-danger" (click)="deletePublication(publicationData.id)">Изтрий</button>
+        </div>
+        <div class="mb-3">
+            <img class="img" src="{{publicationData.imgUrl}}" alt="снимка">
+        </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container my-5">
+    <h1 class="mb-3">Добавяне на нова публикация</h1>
+    <form form="ngform" (ngSubmit)="updatePublication()">
+        <div class="mb-3">
+            <label for="id" class="form-label">Идентификационен номер</label>
+            <input type="text" class="form-control" id="id" readonly
+            name="id" [(ngModel)]="publicationData.id">
+          </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Заглавие</label>
+          <input type="text" class="form-control" id="title" 
+          name="title" [(ngModel)]="publicationData.title">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Съдържание</label>
+            <textarea type="text" class="form-control" id="description" rows="5"
+            name="description" [(ngModel)]="publicationData.description"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="imgUrl" class="form-label">Линк към снимка</label>
+            <input type="text" class="form-control" id="imgUrl"
+            name="imgUrl" [(ngModel)]="publicationData.imgUrl">
+        </div>
+        <div class="buttons">
+            <a [routerLink]="['/publications', 'detail', publicationData.id]" type="button" class="btn btn-warning">Отказ на редакция</a>
+            <button type="button" class="btn btn-danger" (click)="deletePublication(publicationData.id)">Изтрий публикацията</button>
+            <button type="submit" class="btn btn-primary">Запиши промените</button>
+        </div>
+    </form>
+</div>

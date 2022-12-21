@@ -1,0 +1,20 @@
+.authentication-card {
+    width: 40%;
+    margin: 0px auto;
+    right: 500px;
+}
+
+.authentication-card-container {
+    min-height: 50vh;
+}
+
+.bgImgCenter{
+    background-image: url('../../assets/images/2.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover; 
+    position: relative;
+    height: 100vh;
+    height: 88vh;
+    z-index: 0;
+}

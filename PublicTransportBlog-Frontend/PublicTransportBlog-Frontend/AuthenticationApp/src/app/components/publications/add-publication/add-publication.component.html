@@ -1,0 +1,21 @@
+<div class="container my-5">
+    <h1 class="mb-3">Добавяне на нова публикация</h1>
+    <form form="ngform" (ngSubmit)="addPublication()">
+        <div class="mb-3">
+          <label for="title" class="form-label">Заглавие</label>
+          <input type="text" class="form-control" id="title" 
+          name="title" [(ngModel)]="addPublicationRequest.title">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Съдържание</label>
+            <textarea type="text" class="form-control" id="description" rows="5"
+            name="description" [(ngModel)]="addPublicationRequest.description"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="imgUrl" class="form-label">Линк към снимка</label>
+            <input type="text" class="form-control" id="imgUrl"
+            name="imgUrl" [(ngModel)]="addPublicationRequest.imgUrl">
+        </div>
+        <button type="submit" class="btn btn-primary">Публикувай</button>
+      </form>
+</div>

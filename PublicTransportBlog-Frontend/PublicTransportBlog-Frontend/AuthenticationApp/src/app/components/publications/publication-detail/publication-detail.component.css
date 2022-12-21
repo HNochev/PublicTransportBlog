@@ -1,0 +1,19 @@
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 20px;
+}
+
+.img {
+    margin-top: 10px;
+    margin-bottom: 60px;
+    width: 100%;
+}
+
+.last {
+    display: flex;
+    justify-content: space-between;
+}
