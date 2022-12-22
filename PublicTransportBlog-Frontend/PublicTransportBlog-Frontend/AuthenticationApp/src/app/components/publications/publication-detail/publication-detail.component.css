@@ -5,6 +5,8 @@
 
 .description {
     font-size: 20px;
+    overflow-wrap: break-word;
+    line-height: 30px;
 }
 
 .img {

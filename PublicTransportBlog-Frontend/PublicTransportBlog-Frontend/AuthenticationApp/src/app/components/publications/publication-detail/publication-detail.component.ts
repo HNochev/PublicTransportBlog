@@ -2,11 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Publication } from 'src/app/models/publication.model';
 import { PublicationsService } from 'src/app/services/publications.service';
+import { trigger, state, style, animate, transition, keyframes, query, stagger } from '@angular/animations'
 
 @Component({
   selector: 'app-publication-detail',
   templateUrl: './publication-detail.component.html',
-  styleUrls: ['./publication-detail.component.css']
+  styleUrls: ['./publication-detail.component.css'],
+  animations: [
+    trigger('photoAnimation', [
+      transition('* => *', [
+        style({transform: 'translateX(-100%)'}),
+            animate('1500ms', style({transform: 'translateX(0)'}))   
+      ])
+    ])
+  ]
 })
 export class PublicationDetailComponent implements OnInit {
   

@@ -13,7 +13,6 @@ const routes: Routes = [
   {
     path: '',
     component: SecretComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -30,10 +29,12 @@ const routes: Routes = [
   {
     path: 'publications/add',
     component: AddPublicationComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'publications/edit/:id',
     component: EditPublicationComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'publications/detail/:id',
