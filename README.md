@@ -22,7 +22,7 @@
 ## Publication pages
 ![image](https://user-images.githubusercontent.com/81227461/209323359-11992dde-3e54-4c32-969f-b3d285f0b7c9.png)
 ## Detail publication page
-![localhost_4200_publications_detail_856e0544-0233-443e-cd1e-08dae415c759](https://user-images.githubusercontent.com/81227461/209323708-8548b0de-5aa4-4219-9630-49d1498513df.png)
+![image](https://user-images.githubusercontent.com/81227461/209324385-595bda6a-f1db-470e-b24e-bcac4b534b2b.png)
 ## Add publication page
 ![image](https://user-images.githubusercontent.com/81227461/209323813-777cb432-12f1-4baa-884f-431721f50a79.png)
 ## Edit publication page
