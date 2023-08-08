@@ -19,3 +19,8 @@
     height: 88vh;
     z-index: 0;
 }
+
+.error-message {
+    text-align: center;
+    margin-top: 10px;
+}

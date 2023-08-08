@@ -75,6 +75,9 @@
       <button mat-button routerLink="/login" routerLinkActive="active">
         Вече имаш акаунт? Влез от тук.
       </button>
+      <mat-error class="error-message" *ngIf="registerAttempted && (registerForm.controls['password'].hasError('password') || (registerForm.controls['email'].hasError('required') || registerForm.controls['email'].hasError('email')) || (registerForm.controls['username'].hasError('required') || registerForm.controls['username'].hasError('minlength')))">
+        <strong>Въвели сте невалидни данни.</strong>
+      </mat-error>
     </mat-card-actions>
   </mat-card>
 </div>

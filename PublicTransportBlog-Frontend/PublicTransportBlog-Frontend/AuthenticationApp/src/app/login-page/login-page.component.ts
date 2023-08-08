@@ -12,6 +12,7 @@ import {AuthenticationService} from '../services/authentication.service';
 export class LoginPageComponent implements OnInit {
   public loginForm!: FormGroup;
   public matcher = new MyErrorStateMatcher();
+  loginAttempted = false;
 
   constructor(
     private authenticationService: AuthenticationService
@@ -27,8 +28,11 @@ export class LoginPageComponent implements OnInit {
       password: new FormControl('', [Validators.required, passwordValidator()]),
     });
   }
-
+  
   public onSubmit() {
+    setTimeout(() => {
+      this.loginAttempted = true;
+    }, 5000)
     this.authenticationService.login(
       this.loginForm.get('username')!.value,
       this.loginForm!.get('password')!.value

@@ -57,6 +57,9 @@
       <button mat-button routerLink="/register" routerLinkActive="active">
         Все още нямаш акаунт? Регистрирай се от тук.
       </button>
+      <mat-error class="error-message" *ngIf="loginAttempted">
+        <strong>Потребителското име или паролата са невалидни.</strong>
+      </mat-error>
     </mat-card-actions>
   </mat-card>
 </div>

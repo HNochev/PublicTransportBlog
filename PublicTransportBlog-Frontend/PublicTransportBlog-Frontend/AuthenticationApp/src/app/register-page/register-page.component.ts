@@ -12,6 +12,7 @@ import {passwordValidator} from '../helpers/password.validator';
 export class RegisterPageComponent implements OnInit {
   public registerForm!: FormGroup;
   public matcher = new MyErrorStateMatcher();
+  registerAttempted = false;
 
   constructor(
     private authenticationService: AuthenticationService
@@ -27,9 +28,13 @@ export class RegisterPageComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, passwordValidator()]),
     });
+    this.registerAttempted = false;
   }
 
   public onSubmit() {
+    setTimeout(() => {
+      this.registerAttempted = true;
+    }, 5000)
     this.authenticationService
       .register(
         this.registerForm.get('username')!.value,
