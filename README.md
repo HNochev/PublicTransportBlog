@@ -1,17 +1,18 @@
 # PublicTransportBlog
  Public transport website built with ASP.NET Core and Angular for course at Software University
 # Overview
- Application made for people who have interests public trnsport. The guest user can read all the publication and extend a specific article. The normal user and administrator could add, edit and delete publications. The web application has authentication and authorisation multiple roles like Administrator and Normal User.
+ Application made for people who have interests public trnsport. It is an example project of C# Backend API which is working with Frontend written in Angular. The guest user can read all the publication and extend a specific article. The normal user and administrator could add, edit and delete publications. The web application has authentication and authorisation multiple roles like Administrator and Normal User. The application is tested using xUnit Library.
 # Technologies Used
   - .NET Core 6
   - ASP .NET Core 6
   - Entity Framework Core 6
-  - MSSQL Server
+  - Microsoft SQL Server
   - Angular
   - JavaScript
   - Bootstrap
   - HTML 5
   - CSS
+  - xUnit
 # Application Screenshots
 ## Home page
 ![image](https://user-images.githubusercontent.com/81227461/209320638-e4854131-e816-4ff5-bbb5-abeaf5a7dcfd.png)
