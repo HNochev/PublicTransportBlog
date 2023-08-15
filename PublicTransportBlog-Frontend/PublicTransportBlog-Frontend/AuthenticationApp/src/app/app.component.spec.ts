@@ -26,10 +26,14 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('AuthenticationApp');
   });
 
-  it('should render title', () => {
+  it('should render navigation and footer components', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('AuthenticationApp app is running!');
+    const navigationElement = compiled.querySelector('app-navigation');
+    const footerElement = compiled.querySelector('app-footer');
+    
+    expect(navigationElement).toBeTruthy();
+    expect(footerElement).toBeTruthy();
   });
 });
