@@ -109,6 +109,11 @@ namespace AuthenticationApi.Controllers
             return Ok(publication);
         }
 
+        public int CountAllPublications()
+        {
+            return db.Publications.Count();
+        }
+
         //protected override void Dispose(bool disposing)
         //{
         //    if (disposing)
