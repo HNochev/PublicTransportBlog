@@ -1,21 +1,45 @@
 <div class="container my-5">
-    <h1 class="mb-3">Добавяне на нова публикация</h1>
-    <form form="ngform" (ngSubmit)="addPublication()">
-        <div class="mb-3">
-          <label for="title" class="form-label">Заглавие</label>
-          <input type="text" class="form-control" id="title" 
-          name="title" [(ngModel)]="addPublicationRequest.title">
-        </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Съдържание</label>
-            <textarea type="text" class="form-control" id="description" rows="5"
-            name="description" [(ngModel)]="addPublicationRequest.description"></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="imgUrl" class="form-label">Линк към снимка</label>
-            <input type="text" class="form-control" id="imgUrl"
-            name="imgUrl" [(ngModel)]="addPublicationRequest.imgUrl">
-        </div>
-        <button type="submit" class="btn btn-primary">Публикувай</button>
-      </form>
+  <h1 class="mb-3">Добавяне на нова публикация</h1>
+  <form form="ngform" (ngSubmit)="addPublication()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Заглавие</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        [(ngModel)]="addPublicationRequest.title"
+        (input)="updateFormValidity()"
+      >
+      <div *ngIf="addPublicationRequest.title.length < titleMinLength || addPublicationRequest.title.length > titleMaxLength" class="text-danger">
+        Заглавието трябва да е между {{ titleMinLength }} и {{ titleMaxLength }} символа.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Съдържание</label>
+      <textarea
+        type="text"
+        class="form-control"
+        id="description"
+        rows="5"
+        name="description"
+        [(ngModel)]="addPublicationRequest.description"
+        (input)="updateFormValidity()"
+      ></textarea>
+      <div *ngIf="addPublicationRequest.description.length < descriptionMinLength || addPublicationRequest.description.length > descriptionMaxLength" class="text-danger">
+        Съдържанието трябва да е между {{ descriptionMinLength }} и {{ descriptionMaxLength }} символа.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="imgUrl" class="form-label">Линк към снимка</label>
+      <input
+        type="text"
+        class="form-control"
+        id="imgUrl"
+        name="imgUrl"
+        [(ngModel)]="addPublicationRequest.imgUrl"
+      >
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!isFormValid">Публикувай</button>
+  </form>
 </div>

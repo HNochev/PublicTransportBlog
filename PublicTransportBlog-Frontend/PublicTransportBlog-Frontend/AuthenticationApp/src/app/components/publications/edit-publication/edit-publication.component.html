@@ -1,30 +1,61 @@
 <div class="container my-5">
-    <h1 class="mb-3">Добавяне на нова публикация</h1>
+    <h1 class="mb-3">Редакция на публикация</h1>
     <form form="ngform" (ngSubmit)="updatePublication()">
-        <div class="mb-3">
-            <label for="id" class="form-label">Идентификационен номер</label>
-            <input type="text" class="form-control" id="id" readonly
-            name="id" [(ngModel)]="publicationData.id">
-          </div>
-        <div class="mb-3">
-          <label for="title" class="form-label">Заглавие</label>
-          <input type="text" class="form-control" id="title" 
-          name="title" [(ngModel)]="publicationData.title">
+      <div class="mb-3">
+        <label for="id" class="form-label">Идентификационен номер</label>
+        <input
+          type="text"
+          class="form-control"
+          id="id"
+          readonly
+          name="id"
+          [(ngModel)]="publicationData.id"
+        >
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Заглавие</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          [(ngModel)]="publicationData.title"
+          (input)="isFormValid()"
+        >
+        <div *ngIf="publicationData.title.length < titleMinLength || publicationData.title.length > titleMaxLength" class="text-danger">
+          Заглавието трябва да е между {{ titleMinLength }} и {{ titleMaxLength }} символа.
         </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Съдържание</label>
-            <textarea type="text" class="form-control" id="description" rows="5"
-            name="description" [(ngModel)]="publicationData.description"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Съдържание</label>
+        <textarea
+          type="text"
+          class="form-control"
+          id="description"
+          rows="5"
+          name="description"
+          [(ngModel)]="publicationData.description"
+          (input)="isFormValid()"
+        ></textarea>
+        <div *ngIf="publicationData.description.length < descriptionMinLength || publicationData.description.length > descriptionMaxLength" class="text-danger">
+          Съдържанието трябва да е между {{ descriptionMinLength }} и {{ descriptionMaxLength }} символа.
         </div>
-        <div class="mb-3">
-            <label for="imgUrl" class="form-label">Линк към снимка</label>
-            <input type="text" class="form-control" id="imgUrl"
-            name="imgUrl" [(ngModel)]="publicationData.imgUrl">
-        </div>
-        <div class="buttons">
-            <a [routerLink]="['/publications', 'detail', publicationData.id]" type="button" class="btn btn-warning">Отказ на редакция</a>
-            <button type="button" class="btn btn-danger" (click)="deletePublication(publicationData.id)">Изтрий публикацията</button>
-            <button type="submit" class="btn btn-primary">Запиши промените</button>
-        </div>
+      </div>
+      <div class="mb-3">
+        <label for="imgUrl" class="form-label">Линк към снимка</label>
+        <input
+          type="text"
+          class="form-control"
+          id="imgUrl"
+          name="imgUrl"
+          [(ngModel)]="publicationData.imgUrl"
+        >
+      </div>
+      <div class="buttons">
+        <a [routerLink]="['/publications', 'detail', publicationData.id]" type="button" class="btn btn-warning">Отказ на редакция</a>
+        <button type="button" class="btn btn-danger" (click)="deletePublication(publicationData.id)">Изтрий публикацията</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!isFormValid()">Запиши промените</button>
+      </div>
     </form>
-</div>
+  </div>
+  

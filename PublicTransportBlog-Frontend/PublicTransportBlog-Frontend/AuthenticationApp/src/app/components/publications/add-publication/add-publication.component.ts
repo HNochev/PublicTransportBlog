@@ -15,22 +15,34 @@ export class AddPublicationComponent implements OnInit {
     description: '',
     date: new Date(),
     imgUrl: '',
+  };
+
+  titleMinLength = 5;
+  descriptionMinLength = 30; 
+  titleMaxLength = 50;
+  descriptionMaxLength = 1000;
+
+  isFormValid = false;
+
+  constructor(private publicationService: PublicationsService, private router: Router) {}
+
+  ngOnInit(): void {}
+
+  updateFormValidity() {
+    this.isFormValid =
+      this.addPublicationRequest.title.length >= this.titleMinLength &&
+      this.addPublicationRequest.title.length <= this.titleMaxLength &&
+      this.addPublicationRequest.description.length >= this.descriptionMinLength &&
+      this.addPublicationRequest.description.length <= this.descriptionMaxLength;
   }
 
-  constructor(private publicationService: PublicationsService, private router: Router) {
-
-  }
-
-  ngOnInit(): void {
-    
-  }
-
-  addPublication(){
-    this.publicationService.addPublication(this.addPublicationRequest)
-    .subscribe({
-      next: (publication) => {
-        this.router.navigate(['publications']);
-      }
-    })
+  addPublication() {
+    if (this.isFormValid) {
+      this.publicationService.addPublication(this.addPublicationRequest).subscribe({
+        next: (publication) => {
+          this.router.navigate(['publications']);
+        },
+      });
+    }
   }
 }
