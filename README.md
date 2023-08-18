@@ -13,6 +13,12 @@
   - HTML 5
   - CSS
   - xUnit
+# How to start
+1. For the API project create the database by creating it with writing in the Visual Studio console: Add-Migration InitialCreate
+2. Again in the Visual Studio console: Update-Database
+3. Then start the project
+4. Open the front-end project and start it with writing in Visual Studio Code console: ng serve
+5. Open your web browser and access the web application on: http://localhost:4200/
 # Application Screenshots
 ## Home page
 ![image](https://user-images.githubusercontent.com/81227461/209320638-e4854131-e816-4ff5-bbb5-abeaf5a7dcfd.png)
