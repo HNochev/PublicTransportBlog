@@ -75,9 +75,16 @@
       <button mat-button routerLink="/login" routerLinkActive="active">
         Вече имаш акаунт? Влез от тук.
       </button>
-      <mat-error class="error-message" *ngIf="registerAttempted && (registerForm.controls['password'].hasError('password') || (registerForm.controls['email'].hasError('required') || registerForm.controls['email'].hasError('email')) || (registerForm.controls['username'].hasError('required') || registerForm.controls['username'].hasError('minlength')))">
-        <strong>Въвели сте невалидни данни.</strong>
-      </mat-error>
+      <ng-container *ngIf="registerAttempted">
+        <mat-error class="error-message" *ngIf="registerForm.controls['password'].hasError('password') || registerForm.controls['email'].hasError('required') || registerForm.controls['email'].hasError('email') || registerForm.controls['username'].hasError('required') || registerForm.controls['username'].hasError('minlength'); else emailUsernameTaken">
+          <strong>Въвели сте невалидни данни.</strong>
+        </mat-error>
+        <ng-template #emailUsernameTaken>
+          <mat-error class="error-message">
+            <strong>Имейлът или потребителското име са вече заети.</strong>
+          </mat-error>
+        </ng-template>
+      </ng-container>
     </mat-card-actions>
   </mat-card>
 </div>

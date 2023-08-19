@@ -27,6 +27,10 @@ export class LoginPageComponent implements OnInit {
       ]),
       password: new FormControl('', [Validators.required, passwordValidator()]),
     });
+
+    this.loginForm.valueChanges.subscribe(() => {
+      this.loginAttempted = false;
+    });
   }
   
   public onSubmit() {

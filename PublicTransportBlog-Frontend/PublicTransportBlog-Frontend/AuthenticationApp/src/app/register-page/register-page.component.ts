@@ -13,6 +13,7 @@ export class RegisterPageComponent implements OnInit {
   public registerForm!: FormGroup;
   public matcher = new MyErrorStateMatcher();
   registerAttempted = false;
+  registerErrorTimeout: any;
 
   constructor(
     private authenticationService: AuthenticationService
@@ -28,13 +29,19 @@ export class RegisterPageComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, passwordValidator()]),
     });
-    this.registerAttempted = false;
+
+    this.registerForm.valueChanges.subscribe(() => {
+      this.registerAttempted = false;
+    });
   }
 
   public onSubmit() {
-    setTimeout(() => {
+    clearTimeout(this.registerErrorTimeout);
+
+    this.registerErrorTimeout = setTimeout(() => {
       this.registerAttempted = true;
-    }, 5000)
+    }, 5000);
+
     this.authenticationService
       .register(
         this.registerForm.get('username')!.value,

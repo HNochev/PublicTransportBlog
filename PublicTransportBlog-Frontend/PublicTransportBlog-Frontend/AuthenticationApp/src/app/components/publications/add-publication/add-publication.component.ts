@@ -20,7 +20,7 @@ export class AddPublicationComponent implements OnInit {
   titleMinLength = 5;
   descriptionMinLength = 30; 
   titleMaxLength = 50;
-  descriptionMaxLength = 1000;
+  descriptionMaxLength = 3000;
 
   isFormValid = false;
 

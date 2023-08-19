@@ -20,7 +20,7 @@ export class EditPublicationComponent implements OnInit {
   titleMinLength = 5;
   descriptionMinLength = 30;
   titleMaxLength = 50;
-  descriptionMaxLength = 1000;
+  descriptionMaxLength = 3000;
 
   constructor(private route: ActivatedRoute, private publicationService: PublicationsService, private router: Router) {}
 
